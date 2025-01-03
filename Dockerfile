@@ -10,6 +10,8 @@ WORKDIR /app
 # Copy the current directory contents into the container at /app
 COPY . /app/
 
+RUN pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple
+
 # Upgrade pip and install dependencies
 RUN pip install --upgrade pip && \
     pip install -r requirements.txt

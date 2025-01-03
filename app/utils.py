@@ -135,8 +135,10 @@ class ModelHandler:
             window_tensor = torch.tensor(window, dtype=torch.float32).unsqueeze(0)
             position_ids = torch.arange(self.window_size).unsqueeze(0)
             mask_tensor = torch.tensor(mask, dtype=torch.bool).unsqueeze(0)
-
+            # Clear the buffer after prediction
+            self.buffer.clear()
             return window_tensor, position_ids, mask_tensor
 
         # Return None if not enough data is available for prediction
+        self.buffer.clear()
         return None

@@ -13,8 +13,7 @@ COPY . /app/
 RUN pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple
 
 # Upgrade pip and install dependencies
-RUN pip install --upgrade pip && \
-    pip install -r requirements.txt
+RUN pip install --no-cache-dir -r requirements.txt --root-user-action=ignore
 
 # Expose the FastAPI app port
 EXPOSE 8000

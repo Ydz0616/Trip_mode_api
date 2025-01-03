@@ -1,0 +1,10 @@
+# Ignore the virtual environment
+venv/
+__pycache__/
+*.pyc
+
+# Ignore local files like logs and cache
+*.log
+*.db
+*.sqlite3
+*.env
